@@ -1,0 +1,407 @@
+# Patterns
+.*\d[\D&&[^\.\-:]].* # any string having a digit and after it not a digit except .:-
+d*[\.\-:]d* # two digits separated by .:-
+
+# Russian stopwords
+без более бы был была были было быть
+вам вас вы
+ведь весь вдоль вместо вне вниз внизу внутри 
+во весь все всё всего всех вся вокруг вот всегда 
+вперед впереди 
+где говорить говорю говорит говорят 
+да давай давать даже для до достаточно должен 
+др другой другая другое другого других другим 
+дополнительно
+его ему ее её ей если есть 
+еще ещё же 
+за здесь знать знал знала знало знали 
+из или им иметь их иных иное иной иными
+каждый каждая каждое каждым каждыми 
+как какие каким какой какое какая какого кем 
+кто кого 
+когда кроме кто ли либо 
+мне может мои мой мы мочь 
+на навсегда над надо наш не него неё нет ни них 
+но ну
+об однако он она они оно оный от отчего очень оказана оказано 
+перед по под после пока потому потом почти при про прошу 
+против позволяет позволяют позволит позволило позволили
+практическая 
+снова ст со 
+та так таким таких такого такое такая такими такую такому 
+таковых таковым таковой таки таковыми такового таковые 
+таковы таков таковая таковое таково такова таковую таковому 
+также такие такой 
+
+там те тем тел то тогда того тоже той 
+только том тот тут ты 
+уже ул ух 
+хотя 
+чего чей чем что чтобы чьё чья через часов 
+эта эти этим этом этому это этот этой этого 
+
+на не ни об но он мне мои мож она мной много многочисленное многочисленная
+многочисленные многочисленный мною мой мог могут можно может можно
+моя моё мочь над нее оба нам нем нами ними ним мимо немного
+одной
+одного
+менее
+однажды
+однако
+меня
+нему
+меньше
+ней
+наверху
+него
+ниже
+мало
+надо
+один
+одиннадцать
+одиннадцатый
+назад
+наиболее
+недавно
+миллионов
+недалеко
+между
+низко
+меля
+нельзя
+нибудь
+непрерывно
+наконец
+никогда
+никуда
+нас
+наш
+нет
+нею
+неё
+них
+мира
+наша
+наше
+наши
+ничего
+начала
+нередко
+несколько
+обычно
+опять
+около
+мы
+ну
+нх
+от
+отовсюду
+особенно
+нужно
+очень
+отсюда
+в
+во
+вон
+вниз
+внизу
+вокруг
+вот
+восемнадцать
+восемнадцатый
+восемь
+восьмой
+вверх
+вам
+вами
+важное
+важная
+важные
+важный
+вдали
+везде
+ведь
+вас
+ваш
+ваша
+ваше
+ваши
+впрочем
+весь
+вдруг
+вы
+все
+второй
+всем
+всеми
+времени
+время
+всему
+всего
+всегда
+всех
+всею
+всю
+вся
+всё
+всюду
+год
+говорил
+говорит
+года
+году
+где
+да
+ее
+за
+из
+ли
+же
+им
+до
+по
+ими
+под
+иногда
+довольно
+именно
+долго
+позже
+более
+должно
+пожалуйста
+значит
+иметь
+больше
+пока
+ему
+имя
+пор
+пора
+потом
+потому
+после
+почему
+почти
+посреди
+ей
+два
+две
+двенадцать
+двенадцатый
+двадцать
+двадцатый
+двух
+его
+дел
+или
+без
+день
+занят
+занята
+занято
+заняты
+действительно
+давно
+девятнадцать
+девятнадцатый
+девять
+девятый
+даже
+алло
+жизнь
+далеко
+близко
+здесь
+дальше
+для
+лет
+зато
+даром
+первый
+перед
+затем
+зачем
+лишь
+десять
+десятый
+ею
+её
+их
+бы
+еще
+при
+был
+про
+процентов
+против
+просто
+бывает
+бывь
+если
+люди
+была
+были
+было
+будем
+будет
+будете
+будешь
+прекрасно
+буду
+будь
+будто
+будут
+ещё
+пятнадцать
+пятнадцатый
+друго
+другое
+другой
+другие
+другая
+других
+есть
+пять
+быть
+лучше
+пятый
+к
+ком
+конечно
+кому
+кого
+когда
+которой
+которого
+которая
+которые
+который
+которых
+кем
+каждое
+каждая
+каждые
+каждый
+кажется
+как
+какой
+какая
+кто
+кроме
+куда
+кругом
+
+
+
+
+# English stopords
+as	able	about	above	according
+accordingly	across	actually	after	afterwards
+again	against	ain't	all	allow
+allows	almost	alone	along	already
+also	although	always	am	among
+amongst	an	and	another	any
+anybody	anyhow	anyone	anything	anyway
+anyways	anywhere	apart	appear	appreciate
+appropriate	are	aren	around	as
+aside	ask	asking	associated	at
+available	away	awfully	be	became
+because	become	becomes	becoming	been
+before	beforehand	behind	being	believe
+below	beside	besides	best	better
+between	beyond	both	brief	but
+by	came	can
+cannot	cant	cause	causes
+certain	certainly	changes	clearly	co
+com	come	comes	concerning	consequently
+consider	considering	contain	containing	contains
+corresponding	could	couldn	course	currently
+definitely	described	despite	did	didn
+different	do	does	doesn	doing
+don	done	down	downwards	during
+each	edu	eg	eight	either
+else	elsewhere	enough	entirely	especially
+et	etc	even	ever	every
+everybody	everyone	everything	everywhere	ex
+exactly	example	except	far	few
+fifth	first	five	followed	following
+follows	for	former	formerly	forth
+four	from	further	furthermore	get
+gets	getting	given	gives	go
+goes	going	gone	got	gotten
+greetings	had	hadn	happens	hardly
+has	hasn	have	haven	having
+he	hello	help	hence
+her	here	hereafter	hereby
+herein	hereupon	hers	herself	hi
+him	himself	his	hither	hopefully
+how	howbeit	however	ll
+ve	ie	if	ignored
+immediate	in	inasmuch	inc	indeed
+indicate	indicated	indicates	inner	insofar
+instead	into	inward	is	isn
+it	ll	its
+itself	just	keep	keeps	kept
+know	known	knows	last	lately
+later	latter	latterly	least	less
+lest	let		like	liked
+likely	little	look	looking	looks
+ltd	mainly	many	may	maybe
+me	mean	meanwhile	merely	might
+more	moreover	most	mostly	much
+must	my	myself	name	namely
+nd	near	nearly	necessary	need
+needs	neither	never	nevertheless	new
+next	nine	no	nobody	non
+none	noone	nor	normally	not
+nothing	novel	now	nowhere	obviously
+of	off	often	oh	ok
+okay	old	on	once	one
+ones	only	onto	or	other
+others	otherwise	ought	our	ours
+ourselves	out	outside	over	overall
+own	particular	particularly	per	perhaps
+placed	please	plus	possible	presumably
+probably	provides	que	quite	qv
+rather	rd	re	really	reasonably
+regarding	regardless	regards	relatively	respectively
+right	said	same	saw	say
+saying	says	second	secondly	see
+seeing	seem	seemed	seeming	seems
+seen	self	selves	sensible	sent
+serious	seriously	seven	several	shall
+she	should	shouldn't	since	six
+so	some	somebody	somehow	someone
+something	sometime	sometimes	somewhat	somewhere
+soon	sorry	specified	specify	specifying
+still	sub	such	sup	sure
+t's	take	taken	tell	tends
+th	than	thank	thanks	thanx
+that	thats	the	their
+theirs	them	themselves	then	thence
+there	thereafter	thereby	therefore
+therein	theres	thereupon	these	they
+think
+third	this	thorough	thoroughly	those
+though	three	through	throughout	thru
+thus	to	together	too	took
+toward	towards	tried	tries	truly
+try	trying	twice	two	un
+under	unfortunately	unless	unlikely	until
+unto	up	upon	us	use
+used	useful	uses	using	usually
+value	various	very	via	viz
+vs	want	wants	was	wasn
+way	we
+welcome	well	went	were
+what	whatever	when
+whence	whenever	where	whereafter
+whereas	whereby	wherein	whereupon	wherever
+whether	which	while	whither	who
+whoever	whole	whom	whose
+why	will	willing	wish	with
+within	without	won	wonder	would
+yes	yet	you
+your	yours
+yourself	yourselves	zero
