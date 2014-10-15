@@ -24,7 +24,8 @@ import java.util.Date;
  * objects having the same text content which are linked together with the search result item.
  * @author Sergey Apollonov
  */
-public class ObjectItem {
+public class ObjectItem
+{
     /** Object name.     */
     public String name;
     /** Object length.   */
@@ -33,5 +34,5 @@ public class ObjectItem {
     public Date d;
     /** Any object data. */
     public Object data;
-    
+
 }

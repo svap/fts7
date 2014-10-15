@@ -31,13 +31,15 @@ import java.io.IOException;
  * GUI full-text search utility, based on Swing Java GUI classes.
  * <p>
  * Usage: java -cp fts7.jar org.fts7.util.GSearcher
- * 
+ *
  * @author Sergey Apollonov
  */
-public class GSearcher extends javax.swing.JFrame {
+public class GSearcher extends javax.swing.JFrame
+{
 
     // Creates new form NewJFrame
-    public GSearcher() {
+    public GSearcher()
+    {
         initComponents();
     }
 
@@ -48,7 +50,8 @@ public class GSearcher extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         fc = new javax.swing.JFileChooser();
         searchPhrase = new javax.swing.JTextField();
@@ -66,15 +69,19 @@ public class GSearcher extends javax.swing.JFrame {
 
         searchButton.setText("Search");
         searchButton.setEnabled(false);
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 searchButtonActionPerformed(evt);
             }
         });
 
         selectButton.setText("Select Index");
-        selectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        selectButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 selectButtonActionPerformed(evt);
             }
         });
@@ -88,95 +95,117 @@ public class GSearcher extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(searchPhrase, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                            .addComponent(LabelFilename, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                      .addContainerGap()
+                      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1)
+                                .addGroup(layout.createSequentialGroup()
+                                          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                  .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                  .addComponent(selectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                          .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                  .addComponent(searchPhrase, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                                                  .addComponent(LabelFilename, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                      .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(selectButton)
-                    .addComponent(LabelFilename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchPhrase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                .addContainerGap())
+                      .addContainerGap()
+                      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(selectButton)
+                                .addComponent(LabelFilename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                      .addGap(2, 2, 2)
+                      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(searchPhrase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchButton))
+                      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                      .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                      .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // search button
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt)  //GEN-FIRST:event_searchButtonActionPerformed
+    {
         // TODO add your handling code here:
-        try {
+        try
+        {
             Search se=new Search(LabelFilename.getText());
             SearchResult res=se.search(searchPhrase.getText(), 1);
-            
+
             // print the search result (res)
             StringBuilder bb= new StringBuilder();
             bb.append("<html>");
-            for(SearchResultItem a:res){ 
-            bb.append(String.format("<p>%d. ", a.n));
-            for(ObjectItem f:a.objects) // print found file names
-                                       bb.append(String.format("<a href=\"file:%s\">%s</a><br>",f.name,f.name));
-            // print the best relevant piece of a file content
-            bb.append(a.getContentRelevantPiece(6,60, "<font color=red>%s</font>"));
+            for(SearchResultItem a:res)
+            {
+                bb.append(String.format("<p>%d. ", a.n));
+                for(ObjectItem f:a.objects) // print found file names
+                    bb.append(String.format("<a href=\"file:%s\">%s</a><br>",f.name,f.name));
+                // print the best relevant piece of a file content
+                bb.append(a.getContentRelevantPiece(6,60, "<font color=red>%s</font>"));
             }
-            
+
             bb.append(String.format("<p>Total found %d  totalSearchTime=%d printed first 20 items (page 1)",res.cnt,res.totalSearchTime));
             bb.append("</html>");
             jEditorPane1.setText(bb.toString());
-            
-            jEditorPane1.addHyperlinkListener(new HyperlinkListener() {
-            public void hyperlinkUpdate(HyperlinkEvent e) {
-            if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
-              if (Desktop.isDesktopSupported()) {
-                try {
-                    Desktop.getDesktop().browse(e.getURL().toURI());
-                } 
-                catch (Exception e1) {e1.printStackTrace();} 
-              }
-            }
-            }
+
+            jEditorPane1.addHyperlinkListener(new HyperlinkListener()
+            {
+                public void hyperlinkUpdate(HyperlinkEvent e)
+                {
+                    if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
+                    {
+                        if (Desktop.isDesktopSupported())
+                        {
+                            try
+                            {
+                                Desktop.getDesktop().browse(e.getURL().toURI());
+                            }
+                            catch (Exception e1)
+                            {
+                                e1.printStackTrace();
+                            }
+                        }
+                    }
+                }
             });
-            }
-        catch (Exception e) {e.printStackTrace();}
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_searchButtonActionPerformed
 
     // select an index file
-    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt)  //GEN-FIRST:event_selectButtonActionPerformed
+    {
         // TODO add your handling code here:
         fc.setAcceptAllFileFilterUsed(false);
-        fc.addChoosableFileFilter(new FileFilter() {
- 
-              public String getDescription() {
-                      return "Index file (*.db)";
-                      }
- 
-              public boolean accept(File f) {
-              if (f.isDirectory()) {
-                       return true;
-                } else {
-                        return f.getName().toLowerCase().endsWith(".db");
-                       }
-              }
+        fc.addChoosableFileFilter(new FileFilter()
+        {
+
+            public String getDescription()
+            {
+                return "Index file (*.db)";
+            }
+
+            public boolean accept(File f)
+            {
+                if (f.isDirectory())
+                {
+                    return true;
+                }
+                else
+                {
+                    return f.getName().toLowerCase().endsWith(".db");
+                }
+            }
         });
-        if (fc.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+        if (fc.showOpenDialog(this)==JFileChooser.APPROVE_OPTION)
+        {
             String name=fc.getSelectedFile().getAbsolutePath();
             LabelFilename.setText(name);
             searchButton.setEnabled(true);
@@ -186,34 +215,48 @@ public class GSearcher extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(GSearcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        }
+        catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(GSearcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        }
+        catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(GSearcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(GSearcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new GSearcher().setVisible(true);
             }
         });

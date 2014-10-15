@@ -22,17 +22,18 @@ package org.fts7.searchRes;
  * represents a full text content of an indexing object.
  * @author Sergey Apollonov
  */
-public class ContentItem {
-/** This flag will be set when the {@link #word} is in a search phrase */     
-public static byte SEARCH_WORD=1;
+public class ContentItem
+{
+    /** This flag will be set when the {@link #word} is in a search phrase */
+    public static byte SEARCH_WORD=1;
 
-/** This flag will be set if the {@link #word} is a word with the same meaning
- * (or nearly the same) as any word in a search phrase (synonym). */
-public static byte SEARCH_SYN =2;
+    /** This flag will be set if the {@link #word} is a word with the same meaning
+     * (or nearly the same) as any word in a search phrase (synonym). */
+    public static byte SEARCH_SYN =2;
 
-/** A single word of text content */    
-public String word;
+    /** A single word of text content */
+    public String word;
 
-/** flag of the {@link #word} ({@link #SEARCH_WORD} or {@link #SEARCH_SYN}) */
-public byte flag;
+    /** flag of the {@link #word} ({@link #SEARCH_WORD} or {@link #SEARCH_SYN}) */
+    public byte flag;
 }

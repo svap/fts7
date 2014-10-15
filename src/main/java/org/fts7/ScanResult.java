@@ -27,10 +27,11 @@ import java.io.Serializable;
  * A result returning by method scan
  * @author Администратор
  */
-public class ScanResult implements Serializable {
+public class ScanResult implements Serializable
+{
     /** total search object weight */
     public int result; // итоговый вес запроса
-    
+
     public byte nn;    // число уникальных синонимов запроса без повторений
     public short rww;  // фактор количества найденных слов
     public int p1;   // позиция начала лучшей цепочки
@@ -45,7 +46,8 @@ public class ScanResult implements Serializable {
      * @return a byte array of the serialized object
      * @throws IOException
      */
-    byte[] toByteArray() throws IOException {
+    byte[] toByteArray() throws IOException
+    {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(bos);
         dos.writeInt(result);
@@ -65,14 +67,16 @@ public class ScanResult implements Serializable {
     }
 
     // конструктор по умлчанию
-    public ScanResult() {
+    public ScanResult()
+    {
     }
 
     /**
-     * 
+     *
      * @param b a byte array of the serialized object
      */
-    public ScanResult(byte[] b) throws IOException {
+    public ScanResult(byte[] b) throws IOException
+    {
         ByteArrayInputStream bis = new ByteArrayInputStream(b);
         DataInputStream dis = new DataInputStream(bis);
         result = dis.readInt();

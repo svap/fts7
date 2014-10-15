@@ -20,10 +20,11 @@ package org.fts7;
  *
  * @author Sergey Apollonov
  */
-class TwSyn {
- int idw;  // word id
- int ids;  // syn  id 
- int r;    // вес
- int nn;   // количество записей для слова в docs (частота)
- String word; // слово
+class TwSyn
+{
+    int idw;  // word id
+    int ids;  // syn  id
+    int r;    // вес
+    int nn;   // количество записей для слова в docs (частота)
+    String word; // слово
 }

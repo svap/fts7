@@ -20,10 +20,10 @@ package org.fts7;
  *
  * @author Sergey Apollonov
  */
-class Fi {
- public int p;     /** position */
- int r;     /** weight   */
- int idw;   /** word id  */
- int ids;   /** syn  id  */
- //int word;
+class Fi
+{
+    public int p;  // position
+    int r;         // weight
+    int idw;       // word id
+    int ids;       // syn  id
 }

@@ -22,11 +22,13 @@ import java.util.*;
  *
  * @author Администратор
  */
-class IsetA extends ArrayList <Integer>{
+class IsetA extends ArrayList <Integer>
+{
 
-    void add(int val){
-   
-    if (indexOf(val)<0) add(val);
+    void add(int val)
+    {
+
+        if (indexOf(val)<0) add(val);
     }
-    
+
 }

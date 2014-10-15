@@ -23,37 +23,38 @@ import java.lang.*;
  * This interface must be implemented by any indexing object
  * @author Sergey Apollonov
  */
-public interface ObjectContent {
+public interface ObjectContent
+{
 
-/**
- * @return a name of indexing object
- */    
-String getName();
+    /**
+     * @return a name of indexing object
+     */
+    String getName();
 
-/**
- * 
- * @return a length of indexing object
- */
-int getLength();
+    /**
+     *
+     * @return a length of indexing object
+     */
+    int getLength();
 
-/**
- * @return a dateTime stamp of indexing object
- */
-Date getDate();
+    /**
+     * @return a dateTime stamp of indexing object
+     */
+    Date getDate();
 
-/**
- * @return a text content of indexing object as a String array
- */
-String[] getContent();
+    /**
+     * @return a text content of indexing object as a String array
+     */
+    String[] getContent();
 
-/**
- * @return an object linked with indexing object 
- */
-Object getObject();
+    /**
+     * @return an object linked with indexing object
+     */
+    Object getObject();
 
-/**
- * @return an object content hash 
- */
-byte[] getContentHash();
+    /**
+     * @return an object content hash
+     */
+    byte[] getContentHash();
 
 }
