@@ -8,6 +8,10 @@
     <fileSet>
       <directory>${project.build.directory}</directory>
       <outputDirectory>/</outputDirectory>
+        <excludes>
+          <exclude>fts7.zip</exclude>
+          <exclude>parms.php</exclude>
+        </excludes>
     </fileSet>
   </fileSets>
 </assembly>

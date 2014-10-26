@@ -20,7 +20,7 @@ import java.util.*;
 import java.lang.*;
 
 /**
- * This interface must be implemented by any indexing object
+ * This interface must be implemented by any indexable object
  * @author Sergey Apollonov
  */
 public interface ObjectContent

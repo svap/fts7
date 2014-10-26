@@ -27,7 +27,7 @@ import org.sqlite.*;
 import java.io.*;
 
 /**
- * This class performs search using the index created by {@link Indexer}.
+ * This class performs search using the index created by {@link CoreIndexer}.
  * @author Sergey Apolonov
  */
 public class Search
@@ -46,7 +46,7 @@ public class Search
     /**
      * Creates a class instance for searching via given index.
      * @param indexfile the index file for searching. This file
-     * must be created by {@link Indexer}.
+     * must be created by {@link CoreIndexer}.
      * @throws SQLException
      * @throws ClassNotFoundException
      */
@@ -268,15 +268,7 @@ public class Search
                 byte[] zbody=rsf.getBytes(3); // BODY Zlib compressed!
                 if(!rsf.wasNull())   // извлекли непустое тело
                 {
-                    Inflater decomp = new Inflater();
-                    decomp.setInput(zbody);
-                    byte[] ubody=new byte[ff.len]; // буфер для декомпрессии заведомо большой по длине файла
-                    int ulen=decomp.inflate(ubody); // декомпрессия в буфер, в ulen длина полученной строки
-                    //byte[] ub=Arrays.copyOf(ubody,ulen);
-                    String sb=new String(Arrays.copyOf(ubody,ulen),"UTF-8");
-
-                    // передача контента в пункт результата
-                    String[] cc=sb.split(" ");
+                    String [] cc=Zip.unzipA(zbody); // контент
                     int j=1; // позиция в контенте
                     for (String w:cc)
                     {

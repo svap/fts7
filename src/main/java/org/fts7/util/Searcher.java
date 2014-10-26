@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.fts7.util;
 
 import org.fts7.searchRes.SearchResultItem;
@@ -23,53 +22,61 @@ import org.fts7.Search;
 import java.sql.*;
 import java.io.*;
 import java.util.*;
+import java.nio.charset.*;
+import java.io.BufferedReader;
 
 /**
- * This is a simplest example of using full-text searching.
- * Searcher is a console utility, it accepts an index file name as single parameter on startup.
- * Searcher reads a search phrase from console and searches objects within the index.
- * Search results are printed to console.
+ * This is a simplest example of using full-text searching. Searcher is a
+ * console utility, it accepts an index file name as single parameter on
+ * startup. Searcher reads a search phrase from console and searches objects
+ * within the index. Search results are printed to console.
  * <p>
  * Usage: java -cp fts7.jar org.fts7.util.Searcher IndexFile
+ *
  * @author Sergey Apollonov
  */
-public class Searcher
-{
+public class Searcher {
 
-    public static void main(String[] args)
-    {
-        if (args.length==0)   // run without arguments
+    public static void main(String[] args) {
+        if (args.length == 0)   // run without arguments
         {
-            System.out.println("\nThis utility search in index file"+
-                               "\nUsage: java -cp fts7.jar org.fts7.util.Searcher <IndexFile>\n"
-                              );
+            System.out.println("\nThis utility search in index file"
+                    + "\nUsage: java -cp fts7.jar org.fts7.util.Searcher <IndexFile>\n"
+            );
             return;
         }
         try
         {
-            Search ss=new Search(args[0]); // create Search object instance for IndexFile
+// create Search object instance for IndexFile
+            Search ss = new Search(args[0]);
+
             Scanner in = new Scanner(System.in);
             while (true) // console input loop
             {
                 System.out.print("\nEnter search phrase (- to break):");
-                String s=in.nextLine();
-                if (s.length()>0)
+                String s = in.nextLine(); // get a search phrase
+                if (s.length() > 0)
                 {
-                    if (s.equals("-")) break;
-                    SearchResult res=ss.search(s, 1); // search, get a result for page 1
+                    if (s.equals("-"))
+                        break;
+                    System.out.printf("\nSearching phrase : %s\n", s);
+                    
+// do search, get a result for page 1                    
+                    SearchResult res = ss.search(s, 1);
 
-                    // print search result to console
-                    for(SearchResultItem a:res)
+// print search result to console
+                    for (SearchResultItem a : res)
                     {
-                        System.out.printf("\n%d.", a.n); // line number
-                        for(ObjectItem f:a.objects) // print all found file names
+                        System.out.printf("\n%d.", a.n); // an object number
+                        for (ObjectItem f : a.objects)   // objects with the same content
                             System.out.printf("%s\n", f.name);
-                        // print the best relevant piece of a file content
-                        System.out.printf("%s\n",a.getContentRelevantPiece(6,60, "[%s]"));
+
+// print the best relevant piece of a file content
+                        System.out.printf("%s\n", a.getContentRelevantPiece(6, 60, "[%s]"));
                     }
-                    System.out.printf("\nTotal found %d  totalSearchTime=%d printed first "+
-                                      "20 items (page 1), found keywords are surrounded by [] brackets\n",
-                                      res.cnt,res.totalSearchTime);
+                    System.out.printf("\nTotal found %d  totalSearchTime=%d printed first "
+                            + "20 items (page 1), found keywords are surrounded by [] brackets\n",
+                            res.cnt, res.totalSearchTime);
                 }
             } // while
         } //try

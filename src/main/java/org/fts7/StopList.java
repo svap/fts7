@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 /**
  * This class manages a list of words  which should be ignored by
- * {@link Indexer#addObject(ObjectContent)} method.
+ * {@link CoreIndexer#addObject(ObjectContent)} method.
  * <br>This class has a single instance which must be get by {@link #getInstance()} method.
  * <p>
  * The package org.fts7.stopW contains a text file StopW.txt with a list of stop words.
@@ -120,7 +120,7 @@ public class StopList
 
     /**
      * Checks a {@code word} for matching to a StopList. This method is used by
-     * {@link org.fts7.Indexer#addObject(org.fts7.ObjectContent) } method
+     * {@link org.fts7.CoreIndexer#addObject(org.fts7.ObjectContent) } method
      * to exclude a word from being indexed.
      *
      * @return true if the {@code word} is in the StopList.

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fts7</groupId>
     <artifactId>fts7-lib</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -16,12 +16,22 @@
             <artifactId>tika-parsers</artifactId>
             <version>1.6</version>
         </dependency>
+        <dependency>
+        <!-- jsoup HTML parser library @ http://jsoup.org/ -->
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.1</version>
+        </dependency>
     </dependencies>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <organization>Sergey Apollonov</organization>
+        <localsitedir>c:/Site/fts7.org</localsitedir>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
     </properties>
     
     <build>
@@ -97,10 +107,35 @@
                         <resources>
                             <resource>
                                 <directory>${basedir}</directory>
+                                <filtering>true</filtering>
                                 <includes>
                                     <include>license.txt</include>
                                     <include>README.txt</include>
+                                    <include>version.txt</include>
+                                    <include>parms.php</include>
                                 </includes>
+                            </resource>
+                            <resource>
+                              <directory>${localsitedir}</directory>  
+                              <includes>
+                                  <include>fts7.xml</include>
+                              </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>copy-index-profiles</id>
+                    <phase>process-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/index_profiles</outputDirectory>
+                        <encoding>UTF-8</encoding>
+                        <resources>
+                            <resource>
+                                <directory>${basedir}/index_profiles</directory>
                             </resource>
                         </resources>
                     </configuration>
@@ -132,5 +167,4 @@
     
     </plugins>
   </build>
-        
 </project>

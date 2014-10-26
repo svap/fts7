@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ==============================================================================================
+Search Engine index profile.
+This file contains data which are used by an IndexMaker utility to build a full text search index
+To run IndexMaker use the following command:
+
+     java -cp fts7.jar org.fts7.util.IndexMaker <index profile> [-cre]
+
+where
+	<index profile> - an index profile file (this file)
+        -cre            - an optional switch to force build an index from scratch
+==============================================================================================
+-->
+
+  <index>
+
+    <title>An indexing of C: drive</title>
+    <ifile>C:\Indexes\C.db</ifile> <!-- an index file -->
+
+    <items> <!-- a set of paths to be indexed -->
+
+      <item enable="1"> <!-- a single path element. If enable="0" then this path will be discarded from indexing -->
+        <path>C:</path> <!-- this is a path to be indexed -->
+        <incl>*.doc</incl> <!-- all next incl elements are a set of file types to be indexed --> 
+        <incl>*.docx</incl>
+        <incl>*.xls</incl>
+        <incl>*.rtf</incl>
+        <incl>*.txt</incl>
+        <incl>*.htm</incl>
+        <incl>*.html</incl>
+        <incl>*.xls</incl>
+      </item>
+    </items>
+  </index>

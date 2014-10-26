@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package org.fts7;
+package org.fts7.indexer;
 
 import java.util.*;
 import java.io.*;
-import java.security.*;
 import java.util.regex.Pattern;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
@@ -27,13 +26,14 @@ import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.txt.*;
 import org.apache.tika.sax.WriteOutContentHandler;
+import org.fts7.ObjectContent;
 import org.xml.sax.SAXException;
 
 
 /**
  * This class represents a file with a text content as an indexing object.
  * <br>Class implements an ObjectContent interface, therefore a class instance
- * can be added to an index by {@link Indexer#addObject(ObjectContent)}
+ * can be added to an index by {@link org.fts7.CoreIndexer#addObject(ObjectContent)}
  * method.<br>
  * To extract text from a file this class uses the Apache Tika™ toolkit.
  *
@@ -57,7 +57,7 @@ public class FileContent implements ObjectContent
 
         "([\\s_]+|"+ // whitespace символ разделитель
         "[\\W&&[^\\.:\\-\\\\/]]+|"+ // не буквенно-цифровой символ за исключением .:-/
-        "[\\.:\\-\\\\/](?=\\D|$)|"+  // текущий символ .:-/ а за ним не цифра ли конец строки
+        "[\\.:\\-\\\\/](?=\\D|$)|"+  // текущий символ .:-/ а за ним не цифра или конец строки
         "(?<=\\D|^)[\\.:\\-\\\\/]"+  // текущий символ .:-/ а предыдущий не цифра или начало строки
         ")+"
         ,Pattern.UNICODE_CHARACTER_CLASS);
@@ -129,20 +129,8 @@ public class FileContent implements ObjectContent
             }
 
             String[] bodyContent=split(cont);
-
-            try
-            {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-                for(String a:bodyContent)
-                    md.update(a.toUpperCase().getBytes("UTF-8"));
-                hash=md.digest();
-            }
-            catch (NoSuchAlgorithmException|UnsupportedEncodingException e)
-            {
-                throw new RuntimeException ("FileContent exception - "+e.getMessage());
-            }
-
-
+            hash=util.stringArrayHash(bodyContent);
+            
             content = new String[nameContent.length+bodyContent.length];
             System.arraycopy(nameContent, 0, content, 0, nameContent.length);
             System.arraycopy(bodyContent, 0, content, nameContent.length, bodyContent.length);
